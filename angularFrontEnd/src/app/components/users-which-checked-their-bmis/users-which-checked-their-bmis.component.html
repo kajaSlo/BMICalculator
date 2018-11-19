@@ -1,0 +1,13 @@
+<app-navbar></app-navbar>
+
+<table class="table" id="usersTable">
+  <tr bgcolor="#f9f9f9">
+      <th>Name:</th>
+  </tr>
+
+  <tr *ngFor="let user of users?.value">
+      <td>
+          {{ user.name }}
+      </td>
+  </tr>
+</table>
