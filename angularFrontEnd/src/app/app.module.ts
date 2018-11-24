@@ -8,10 +8,13 @@ import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 import {RouterModule, Routes} from '@angular/router';
 import { UsersWhichCheckedTheirBMIsComponent } from './components/users-which-checked-their-bmis/users-which-checked-their-bmis.component';
+import { BmiComponentComponent } from './components/bmi-component/bmi-component.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import {PopupModule} from 'ng2-opd-popup';
 
 
 const appRoutes: Routes = [
-  {path: '', component: NavbarComponent},
+  {path: '', component: MainPageComponent},
   {path: 'users', component: UsersWhichCheckedTheirBMIsComponent}
 ]
 
@@ -19,13 +22,16 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     NavbarComponent,
-    UsersWhichCheckedTheirBMIsComponent
+    UsersWhichCheckedTheirBMIsComponent,
+    BmiComponentComponent,
+    MainPageComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    PopupModule.forRoot(),
   ],
   providers: [
     UserService

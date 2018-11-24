@@ -1,0 +1,86 @@
+<br> <br>
+<!-- <img id="food" src="assets/food2.jpg"> -->
+<br>
+<h1 id="calculateInfo">Calculate your BMI:</h1>
+<popup>
+    <h2 style="color:#5F9EA0;">Your bmi is:  {{calculatedBMI}}</h2>  
+  <br>
+  <h3 style="color:#5F9EA0;">{{specification}}</h3>  
+  <h6 style="color:#006400;">{{description}}</h6> 
+</popup>
+<form id="usersBmiForm" novalidate #f="ngForm" (ngSubmit)="calculateBmi(f)">
+<!-- ------------------------------Name-------------------- -->
+
+  <div class="form-group">
+      <label for="">Name</label>
+      <input type="text" class="form-control" placeholder="Name" name="name" 
+      [(ngModel)]="name"
+      #userName="ngModel"
+      minlength="2"
+      required
+      />
+  </div>
+  <div class="alert alert-danger" *ngIf="userName.errors?.required && userName.touched">
+      Name is required.
+  </div>
+  <div class="alert alert-danger" *ngIf="userName.errors?.minlength && userName.touched">
+      Minimum length is 2.
+  </div>
+<!-- ------------------------------AGE-------------------- -->
+  <div class="form-group">
+      <label for="">Age</label>
+      <input type="number" min="1" max="120" class="form-control" placeholder="Age" name="age" 
+      [(ngModel)]="age"
+      #userAge="ngModel"
+      required
+      />
+  </div>
+  <div class="alert alert-danger" *ngIf="userAge.errors?.required && userAge.touched">
+     Age is required.
+  </div>
+<!-- ------------------------------GENDER-------------------- -->
+<div class="form-group">
+  <label for="">Gender</label>
+  <br>
+  <select [(ngModel)]="gender" name="gender" #userGender="ngModel"
+  required>
+    <option value="undefined" selected>Please select</option>
+    <option selected="Male" value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select> 
+</div>
+
+<!-- UBEZPIECZYC SIE W BACK ENDZIE NA WARTOSC UNDEFINED-->
+
+<!-- ------------------------------WEIGHT-------------------- -->
+<div class="form-group">
+    <label for="">Weight</label>
+    <input type="number" min="1" max="300" class="form-control" placeholder="Weight" name="weight" 
+    [(ngModel)]="weight"
+    #userWeight="ngModel"
+    required
+    />
+</div>
+<div class="alert alert-danger" *ngIf="userWeight?.errors?.required && userWeight?.touched">
+   Weight is required.
+</div>
+
+<!-- ------------------------------HEIGHT-------------------- -->
+
+<div class="form-group">
+    <label for="">Height</label>
+    <input type="number" min="50" max="230" class="form-control" placeholder="Height" name="height" 
+    [(ngModel)]="height"
+    #userHeight="ngModel"
+    required
+    />
+</div>
+<div class="alert alert-danger" *ngIf="userHeight?.errors?.required && userHeight?.touched">
+   Height is required.
+</div>
+
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="!f.valid">Calculate BMI</button>
+  </div>
+
+</form>

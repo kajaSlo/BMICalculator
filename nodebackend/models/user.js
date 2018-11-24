@@ -17,8 +17,11 @@ var UserSchema = mongoose.Schema({
     weight: {
         type: Number,
         required: true
+    },
+    height: {
+        type: Number,
+        required: true
     }
-
 });
 
 var User = module.exports = mongoose.model("User", UserSchema);

@@ -17,4 +17,8 @@ export class UserService {
     return this.http.get('http://localhost:3000/users').pipe(map(res => res.json()))
   }
 
+  postCalculateBMI(user){
+    return this.http.post('http://localhost:3000/users/calculateBMI', user).pipe(map(res => res.json()))   
+}
+
 }
