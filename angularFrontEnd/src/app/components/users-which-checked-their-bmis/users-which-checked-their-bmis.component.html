@@ -1,13 +1,19 @@
 <app-navbar></app-navbar>
 
 <table class="table" id="usersTable">
-  <tr bgcolor="#f9f9f9">
+  <tr bgcolor="#9ACD32">
       <th>Name:</th>
   </tr>
+  <tr bgcolor="#9ACD32">
+    <th>Age:</th>
+   </tr>
 
   <tr *ngFor="let user of users?.value">
       <td>
           {{ user.name }}
       </td>
+      <td>
+        {{ user.age }}
+    </td>
   </tr>
 </table>

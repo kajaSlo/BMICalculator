@@ -1,6 +1,20 @@
+
+
 <br> <br>
 <!-- <img id="food" src="assets/food2.jpg"> -->
 <br>
+<div class="alert alert-danger" *ngIf="ageError">
+    <p>Age cannot be less than 1 or bigger than 120.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="weightError">
+    <p>Weight cannot be less than 5 or bigger than 300.</p>
+</div>
+
+<div class="alert alert-danger" *ngIf="heightError">
+    <p>Height cannot be less than 50 or bigger than 230.</p>
+</div>
+
 <h1 id="calculateInfo">Calculate your BMI:</h1>
 <popup>
     <h2 style="color:#5F9EA0;">Your bmi is:  {{calculatedBMI}}</h2>  
@@ -55,7 +69,7 @@
 <!-- ------------------------------WEIGHT-------------------- -->
 <div class="form-group">
     <label for="">Weight</label>
-    <input type="number" min="1" max="300" class="form-control" placeholder="Weight" name="weight" 
+    <input type="number" min="5" max="300" class="form-control" placeholder="Weight" name="weight" 
     [(ngModel)]="weight"
     #userWeight="ngModel"
     required
