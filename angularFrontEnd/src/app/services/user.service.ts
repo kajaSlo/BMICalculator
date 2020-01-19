@@ -10,7 +10,6 @@ export class UserService {
 
   constructor(private http: Http) { }
 
-
   public usersBS = new BehaviorSubject<string>(null);
 
   getUsers(){
@@ -19,6 +18,5 @@ export class UserService {
 
   postCalculateBMI(user){
     return this.http.post('http://localhost:3000/users/calculateBMI', user).pipe(map(res => res.json()))   
-}
-
+   }
 }

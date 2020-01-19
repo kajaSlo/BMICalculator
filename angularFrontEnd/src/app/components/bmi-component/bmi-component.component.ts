@@ -15,40 +15,30 @@ export class BmiComponentComponent implements OnInit {
   ageError:boolean = false;
   weightError = false;
   heightError = false;
-  constructor(private userService: UserService,private popup:Popup) { }
+  constructor(private userService: UserService, private popup:Popup) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   calculateBmi({ value, valid }) {
+
     if(valid){
       if(value.age < 1  || value.age > 120){
-
         this.ageError = true;
-
         setTimeout(function() {
           this.ageError = false;
           window.location.reload();
-
-        }.bind(this),5000);
-        
+        }.bind(this),5000);      
       }else if(value.weight < 5  || value.weight > 300){
-
         this.weightError = true;
-
         setTimeout(function() {
           this.weightError = false;
           window.location.reload();
-
         }.bind(this),5000);
       }else if(value.height < 50  || value.height > 230){
-
         this.heightError = true;
-
         setTimeout(function() {
           this.heightError = false;
           window.location.reload();
-
         }.bind(this),5000);
       } else {
         this.userService.postCalculateBMI(value).subscribe(res => {
@@ -104,11 +94,9 @@ export class BmiComponentComponent implements OnInit {
               this.specification="Something went wrong";
           }
           this.popup.show();
-
           setTimeout(function() {
             this.popup.hide();
             window.location.reload();
-
           }.bind(this),5000);   
         })
       }

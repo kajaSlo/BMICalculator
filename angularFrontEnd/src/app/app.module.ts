@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { UserService } from './services/user.service';
@@ -11,7 +10,6 @@ import { UsersWhichCheckedTheirBMIsComponent } from './components/users-which-ch
 import { BmiComponentComponent } from './components/bmi-component/bmi-component.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import {PopupModule} from 'ng2-opd-popup';
-
 
 const appRoutes: Routes = [
   {path: '', component: MainPageComponent},

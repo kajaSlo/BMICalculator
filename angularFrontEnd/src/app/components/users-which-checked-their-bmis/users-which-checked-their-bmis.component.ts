@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersWhichCheckedTheirBMIsComponent implements OnInit {
 
   users: any;
-
+  
   constructor(public userService: UserService) { }
 
   ngOnInit() {
@@ -18,5 +18,4 @@ export class UsersWhichCheckedTheirBMIsComponent implements OnInit {
       this.users = this.userService.usersBS;
     })
   }
-
 }
